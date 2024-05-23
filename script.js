@@ -59,7 +59,7 @@ function nextQuestion(){
         slider.value = 50;
 
         //show the prev button
-
+        prevBtn.disabled = false;
         //if last question: replace Next button with Results button
         if (questionNumber == totalQuestions) nextBtn.innerHTML = "Results";
     }
@@ -73,6 +73,7 @@ function prevQuestion(){
     //set to prev. answer
     slider.value = answerValues[questionNumber-1];
     nextBtn.innerHTML = "Next";
+    if (questionNumber == 1) prevBtn.disabled = true;
 }
 
 function tabulateResults(){
