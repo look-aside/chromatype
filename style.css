@@ -41,7 +41,7 @@ h1, h2{
 
 .slider{
     -webkit-appearance: none;
-    width: 100%;
+    width: 300px;
     margin-top: 10px;
     margin-bottom: 15px;
     height: 15px;
