@@ -8,10 +8,13 @@ slider = document.getElementById("slider");
 //progress vars
 questionNumber = 1;
 totalQuestions = 7;
+totalBrQuestions = 1; //REMEMBER TO UPDATE THIS
 
 //results tracking
 const answerValues = Array(totalQuestions).fill(0); //the answer (1-100) of each question
-const colorValues = [0,0,0,0,0,0,0] //r, o, y, g, b, p, brightness
+const colorValues = [0,0,0,0,0,0]; //r, o, y, g, b, p, brightness
+const colorNamesIndex = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple"];
+var brightness = 0;
 
 //QUESTIONS
 const questions = [
@@ -46,7 +49,10 @@ function startQuiz(){
 
 //take in the data and go to the next question
 function nextQuestion(){
-    if (questionNumber == totalQuestions) tabulateResults();
+    if (questionNumber == totalQuestions) {
+        answerValues[questionNumber-1] = slider.value;
+        tabulateResults();
+    }
     else{
         //take data
         answerValues[questionNumber-1] = slider.value;
@@ -78,13 +84,51 @@ function prevQuestion(){
 
 function tabulateResults(){
     //calculate the color points
+    for (i = 0; i < totalQuestions; i ++){
+        thisAnswer = answerValues[i];
+        thisColor = questions[i*2]; //find which color the Q corresponded to
+        if (thisColor == "R") colorValues[0] += parseInt(thisAnswer);
+        if (thisColor == "O") colorValues[1] += parseInt(thisAnswer);
+        if (thisColor == "Y") colorValues[2] += parseInt(thisAnswer);
+        if (thisColor == "G") colorValues[3] += parseInt(thisAnswer);
+        if (thisColor == "B") colorValues[4] += parseInt(thisAnswer);
+        if (thisColor == "P") colorValues[5] += parseInt(thisAnswer);
+        if (thisColor == "Br") brightness += parseInt(thisAnswer);
+    }
+
     //calculate the overtone and undertone
+    let maxVal = Math.max(...colorValues);
+    let maxIndex = colorValues.indexOf(maxVal);
+    alert("max index: " + maxIndex);
+    let maxColor = colorNamesIndex[maxIndex];
+    alert("max color: " + maxColor);
+    brightnessPercent = brightness/totalBrQuestions;
+    alert("brightness percent: " + brightnessPercent);
     
-    //switch dislpay to results page
+    OVERTONE = "";
+    OVERTONE_MODIFIER = "";
+    
+    //outliers
+    if (brightnessPercent < 15){
+        OVERTONE = "Black";
+    }
+    if (brightnessPercent > 85){
+        OVERTONE = "White";
+    }
+
+    //color
+    if (OVERTONE == ""){
+        OVERTONE = maxColor;
+    }
+
+    alert("Overtone: " + OVERTONE);
+
+    //switch display to results page
+    
 }
 
 //MAIN
 startQuiz();
 
-nextBtn.onclick = function(){ nextQuestion(); };
-prevBtn.onclick = function(){ prevQuestion(); };
+nextBtn.onclick = function(){ nextQuestion();};
+prevBtn.onclick = function(){ prevQuestion();};
