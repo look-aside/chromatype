@@ -10,8 +10,8 @@ resultsDiv = document.getElementById("results");
 
 //progress vars
 questionNumber = 1;
-totalQuestions = 9;
-totalBrQuestions = 3; //REMEMBER TO UPDATE THIS
+totalQuestions = 46;
+totalBrQuestions = 10; //REMEMBER TO UPDATE THIS
 
 //results tracking
 const answerValues = Array(totalQuestions).fill(0); //the answer (1-100) of each question
@@ -21,15 +21,52 @@ var brightness = 0;
 
 //QUESTIONS
 const questions = [
-    "R", "I hate to be alone.", 
-    "O", "I am often described as well-rounded.", 
-    "Y", "I am very rarely sad.", 
-    "G", "I am drawn to the outdoors.", 
-    "B", "I love to dissect my own inner world.",
-    "P", "It wouldn't be out of the ordinary for me to learn how to unicycle.",
     "Br","I have an open mind.",
+    "G","I am drawn to the outdoors.",
+    "R","I am a hopeless romantic.",
     "Br", "People are drawn to me.",
-    "Br", "I don't have many deep thoughts."
+    "O","I never want to stop learning.",
+    "B","I feel my emotions very deeply.",
+    "Y","I am often described as joyous and cheerful.",
+    "O","I have been called driven and self-motivated.",
+    "G","I am at peace when I'm alone.",
+    "Br","My head is in the clouds often.",
+    "Y","There is a light at the end of the tunnel.",
+    "R","I hate to be alone.",
+    "Y","I focus on the beauty of the small things.",
+    "B","I love to dissect my own inner world.",
+    "Br","Sometimes I have few thoughts in my head.",
+    "G", "I am not interested in personal drama.",
+    "R", "The most important part of my life is my loved ones.",
+    "P", "It wouldn't be out of the ordinary for me to learn how to unicycle.",
+    "B", "I think therapy is essential.",
+    "Br","I make connections very quickly.",
+    "G","I would prefer to live far away from the big city.",
+    "R","I am always seeking new connections.",
+    "P","I have unconventional skills or interests.",
+    "G","I like to work with my hands.",
+    "Br","I get along with others easily.",
+    "P","I know many interesting or odd people.",
+    "R","Family, whether chosen or biological, is everything to me.",
+    "O","My career is important, but it's not everything.",
+    "P","I am an unusual person.",
+    "B","I have been called emotionally intelligent.",
+    "Br","I go with the flow.",
+    "Y","I am very rarely sad.",
+    "O","I value socializing, but I make time for myself.",
+    "Y","I have come to terms with hardship and choose to remain upbeat.",
+    "Br","I don't like to overthink things.",
+    "P","I don't take 'weird' as an insult.",
+    "Y","I value being kind to everyone.",
+    "O","I am often described as well-rounded.",
+    "G","I can feel out of place in modern society.",
+    "B","My loved ones are important to me, but I need time alone.",
+    "R","I love to meet people.",
+    "Br","I have been called shallow.",
+    "P","I make others laugh a lot.",
+    "B", "I spend a lot of time making decisions.",
+    "Br","I don't have many deep thoughts.",
+    "O","I care about self-improvement."
 ];
 
 //update the question number label
