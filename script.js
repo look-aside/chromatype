@@ -5,15 +5,18 @@ prevBtn = document.getElementById("prev-button");
 nextBtn = document.getElementById("next-button");
 slider = document.getElementById("slider");
 
+quizDiv = document.getElementById("quiz");
+resultsDiv = document.getElementById("results");
+
 //progress vars
 questionNumber = 1;
-totalQuestions = 7;
-totalBrQuestions = 1; //REMEMBER TO UPDATE THIS
+totalQuestions = 9;
+totalBrQuestions = 3; //REMEMBER TO UPDATE THIS
 
 //results tracking
 const answerValues = Array(totalQuestions).fill(0); //the answer (1-100) of each question
-const colorValues = [0,0,0,0,0,0]; //r, o, y, g, b, p, brightness
 const colorNamesIndex = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple"];
+var colorValues = [0,0,0,0,0,0]; //r, o, y, g, b, p, brightness
 var brightness = 0;
 
 //QUESTIONS
@@ -24,7 +27,9 @@ const questions = [
     "G", "I am drawn to the outdoors.", 
     "B", "I love to dissect my own inner world.",
     "P", "It wouldn't be out of the ordinary for me to learn how to unicycle.",
-    "Br","I have an open mind."
+    "Br","I have an open mind.",
+    "Br", "People are drawn to me.",
+    "Br", "I don't have many deep thoughts."
 ];
 
 //update the question number label
@@ -38,8 +43,12 @@ function updateQuestion(){
 }
 
 //set up the quiz from question 1
-function startQuiz(){   
+function startQuiz(){  
+    resultsDiv.style.display = 'none';
+    quizDiv.style.display = 'block';
+
     questionNumber = 1;
+    colorValues = [0,0,0,0,0,0];
     updateLabel();
     updateQuestion();
 
@@ -51,7 +60,7 @@ function startQuiz(){
 function nextQuestion(){
     if (questionNumber == totalQuestions) {
         answerValues[questionNumber-1] = slider.value;
-        tabulateResults();
+        showResults();
     }
     else{
         //take data
@@ -82,7 +91,11 @@ function prevQuestion(){
     if (questionNumber == 1) prevBtn.disabled = true;
 }
 
-function tabulateResults(){
+function showResults(){
+    //update display
+    quizDiv.style.display = 'none';
+    resultsDiv.style.display = 'block';
+
     //calculate the color points
     for (i = 0; i < totalQuestions; i ++){
         thisAnswer = answerValues[i];
@@ -99,12 +112,10 @@ function tabulateResults(){
     //calculate the overtone and undertone
     let maxVal = Math.max(...colorValues);
     let maxIndex = colorValues.indexOf(maxVal);
-    alert("max index: " + maxIndex);
     let maxColor = colorNamesIndex[maxIndex];
-    alert("max color: " + maxColor);
     brightnessPercent = brightness/totalBrQuestions;
-    alert("brightness percent: " + brightnessPercent);
     
+    //calculate overtone first
     OVERTONE = "";
     OVERTONE_MODIFIER = "";
     
@@ -119,16 +130,21 @@ function tabulateResults(){
     //color
     if (OVERTONE == ""){
         OVERTONE = maxColor;
+        if (brightnessPercent <= 40) OVERTONE_MODIFIER = "Dark";
+        else if (brightnessPercent <= 70) OVERTONE_MODIFIER = "True";
+        else OVERTONE_MODIFIER = "Light";
     }
 
-    alert("Overtone: " + OVERTONE);
+    //then undertone
+    //slightly lower threshold for white or black?
 
-    //switch display to results page
-    
+    //populate results page
+    document.getElementById("overtone-text").innerHTML = 
+    "Your Overtone is " + OVERTONE_MODIFIER + " " + OVERTONE;
 }
 
 //MAIN
-startQuiz();
+//startQuiz();
 
 nextBtn.onclick = function(){ nextQuestion();};
 prevBtn.onclick = function(){ prevQuestion();};

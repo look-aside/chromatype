@@ -75,7 +75,7 @@ h2{
     cursor: pointer;
   }
 
-#quiz{
+#quiz, #results{
     background-color: #fff;
     max-width: 40%;
     margin: 0 auto;
@@ -122,4 +122,9 @@ h2{
 
 .btn:disabled{
     background-color: #ddd;
+}
+
+.results-text{
+    color: #888;
+    padding: 4px;
 }
