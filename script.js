@@ -144,7 +144,7 @@ function showResults(){
 }
 
 //MAIN
-//startQuiz();
+startQuiz();
 
 nextBtn.onclick = function(){ nextQuestion();};
 prevBtn.onclick = function(){ prevQuestion();};
