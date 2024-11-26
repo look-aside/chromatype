@@ -21,48 +21,48 @@ var brightness = 0;
 
 //QUESTIONS
 const questions = [
-"R","I love to surround myself with family, whether chosen or biological.",
-"R","I am a hopeless romantic.",
-"R","I feel most myself around others.",
-"R","I am always seeking new connections.",
-"R","I love to meet people.",
-"R","The most important part of my life is my loved ones.",
-"O","I am often described as well-rounded.",
-"O","I value socializing, but I make time for myself.",
-"O","I care about self-improvement.",
-"O","I never want to stop learning.",
-"O","My career is important, but it's not everything.",
-"O","I have been called driven and self-motivated.",
-"Y","I want to make other people happy.",
-"Y","I have been called an optimist.",
-"Y","I have come to terms with hardship and choose to remain upbeat.",
-"Y","I value being kind to everyone.",
-"Y","There is a light at the end of the tunnel.",
-"Y","I focus on the beauty of the small things.",
-"G","I am not interested in personal drama.",
-"G","I stay calm when dealing with conflict.",
-"G","Spending time in nature recharges me.",
-"G","I like to work with my hands.",
-"G","I am happy with a small circle of close friends.",
-"G","I am at peace when I am alone.",
-"B","It's important to let yourself feel your emotions fully.",
-"B","I love to dissect my own inner world.",
-"B","It is essential to take your time with decisions.",
-"B","I have been called emotionally intelligent.",
-"B","I have a strong sense of morals and values.",
-"B","I want to understand how other people feel and think.",
-"P","My brain works differently from most people's.",
-"P","I am always embarking on a new creative project.",
-"P","I don't take being called weird as an insult.",
-"P","I make others laugh a lot.",
-"P","It wouldn't be out of the ordinary for me to learn how to unicycle.",
-"P","There's nothing wrong with standing out in a crowd.",
-"Br","I get along with others easily.",
-"Br","People are drawn to me.",
-"Br","Sometimes, ignorance can be bliss.",
-"Br","I avoid difficult or painful topics.",
-"Br","I trust that most people are fundamentally good.",
-"Br","I'm scared of getting hurt."
+    "R","I love to surround myself with family, whether chosen or biological.",
+    "G","I am not interested in personal drama.",
+    "R","I am always seeking new connections.",
+    "Y","I have come to terms with hardship and choose to remain upbeat.",
+    "O","I value socializing, but I make time for myself.",
+    "R","I feel most myself around others.",
+    "O","I have been called driven and self-motivated.",
+    "B","I want to understand how other people feel and think.",
+    "P","I don't take being called weird as an insult.",
+    "Y","I want to make other people happy.",
+    "Br","Sometimes, ignorance can be bliss.",
+    "B","I love to dissect my own inner world.",
+    "O","I care about self-improvement.",
+    "P","My brain works differently from most people's.",
+    "P","I am always embarking on a new creative project.",
+    "Y","I value being kind to everyone.",
+    "B","I have a strong sense of morals and values.",
+    "R","I am a hopeless romantic.",
+    "Y","There is a light at the end of the tunnel.",
+    "Y","I focus on the beauty of the small things.",
+    "G","I stay calm when dealing with conflict.",
+    "R","I love to meet people.",
+    "Br","I'm scared of getting hurt.",
+    "R","The most important part of my life is my loved ones.",
+    "O","I am often described as well-rounded.",
+    "B","It is essential to take your time with decisions.",
+    "G","Spending time in nature recharges me.",
+    "P","There's nothing wrong with standing out in a crowd.",
+    "G","I like to work with my hands.",
+    "Br","I trust that most people are fundamentally good.",
+    "G","I am happy with a small circle of close friends.",
+    "O","I never want to stop learning.",
+    "Br","I avoid difficult or painful topics.",
+    "G","I am at peace when I am alone.",
+    "O","My career is important, but it's not everything.",
+    "B","It's important to let yourself feel your emotions fully.",
+    "B","I have been called emotionally intelligent.",
+    "P","I make others laugh a lot.",
+    "P","It wouldn't be out of the ordinary for me to learn how to unicycle.",
+    "Br","I get along with others easily.",
+    "Y","I have been called an optimist.",
+    "Br","People are drawn to me."
 ];
 
 //update the question number label
@@ -151,29 +151,24 @@ function showResults(){
     //calculate overtone first
     OVERTONE = "";
     OVERTONE_MODIFIER = "";
+
+    OVERTONE = maxColor;
+    if (brightnessPercent <= 40) OVERTONE_MODIFIER = "Dark";
+    else if (brightnessPercent <= 60) OVERTONE_MODIFIER = "True";
+    else OVERTONE_MODIFIER = "Light";
     
-    //outliers
-    if (brightnessPercent < 15){
-        OVERTONE = "Black";
-    }
-    if (brightnessPercent > 85){
-        OVERTONE = "White";
-    }
-
-    //color
-    if (OVERTONE == ""){
-        OVERTONE = maxColor;
-        if (brightnessPercent <= 40) OVERTONE_MODIFIER = "Dark";
-        else if (brightnessPercent <= 60) OVERTONE_MODIFIER = "True";
-        else OVERTONE_MODIFIER = "Light";
-    }
-
-    //then undertone
-    //slightly lower threshold for white or black?
-
+    //then undertone - calculate second-most max
+    colorValues[maxIndex] = 0; //zero out the max (overtone)
+    let secondMaxVal = Math.max(...colorValues);
+    let secondMaxIndex = colorValues.indexOf(secondMaxVal);
+    let secondMaxColor = colorNamesIndex[secondMaxIndex];
+    UNDERTONE = secondMaxColor;
+    
     //populate results page
     document.getElementById("overtone-text").innerHTML = 
-    "Your Overtone is <b>" + OVERTONE_MODIFIER + " " + OVERTONE + "</b>.";   
+    "Your Overtone is <b>" + OVERTONE_MODIFIER + " " + OVERTONE + "</b>.";  
+    document.getElementById("undertone-text").innerHTML = 
+    "Your Undertone is <b>" + UNDERTONE + "</b>.";    
 }
 
 //MAIN
