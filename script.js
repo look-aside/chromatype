@@ -10,8 +10,8 @@ resultsDiv = document.getElementById("results");
 
 //progress vars
 questionNumber = 1;
-totalQuestions = 46;
-totalBrQuestions = 10; //REMEMBER TO UPDATE THIS
+totalQuestions = 42;
+totalBrQuestions = 6; //REMEMBER TO UPDATE THIS
 
 //results tracking
 const answerValues = Array(totalQuestions).fill(0); //the answer (1-100) of each question
@@ -21,52 +21,48 @@ var brightness = 0;
 
 //QUESTIONS
 const questions = [
-    "Br","I have an open mind.",
-    "G","I am drawn to the outdoors.",
-    "R","I am a hopeless romantic.",
-    "Br", "People are drawn to me.",
-    "O","I never want to stop learning.",
-    "B","I feel my emotions very deeply.",
-    "Y","I am often described as joyous and cheerful.",
-    "O","I have been called driven and self-motivated.",
-    "G","I am at peace when I'm alone.",
-    "Br","My head is in the clouds often.",
-    "Y","There is a light at the end of the tunnel.",
-    "R","I hate to be alone.",
-    "Y","I focus on the beauty of the small things.",
-    "B","I love to dissect my own inner world.",
-    "Br","Sometimes I have few thoughts in my head.",
-    "G", "I am not interested in personal drama.",
-    "R", "The most important part of my life is my loved ones.",
-    "P", "It wouldn't be out of the ordinary for me to learn how to unicycle.",
-    "B", "I think therapy is essential.",
-    "Br","I make connections very quickly.",
-    "G","I would prefer to live far away from the big city.",
-    "R","I am always seeking new connections.",
-    "P","I have unconventional skills or interests.",
-    "G","I like to work with my hands.",
-    "Br","I get along with others easily.",
-    "P","I know many interesting or odd people.",
-    "R","Family, whether chosen or biological, is everything to me.",
-    "O","My career is important, but it's not everything.",
-    "P","I am an unusual person.",
-    "B","I have been called emotionally intelligent.",
-    "Br","I go with the flow.",
-    "Y","I am very rarely sad.",
-    "O","I value socializing, but I make time for myself.",
-    "Y","I have come to terms with hardship and choose to remain upbeat.",
-    "Br","I don't like to overthink things.",
-    "P","I don't take 'weird' as an insult.",
-    "Y","I value being kind to everyone.",
-    "O","I am often described as well-rounded.",
-    "G","I can feel out of place in modern society.",
-    "B","My loved ones are important to me, but I need time alone.",
-    "R","I love to meet people.",
-    "Br","I have been called shallow.",
-    "P","I make others laugh a lot.",
-    "B", "I spend a lot of time making decisions.",
-    "Br","I don't have many deep thoughts.",
-    "O","I care about self-improvement."
+"R","I love to surround myself with family, whether chosen or biological.",
+"R","I am a hopeless romantic.",
+"R","I feel most myself around others.",
+"R","I am always seeking new connections.",
+"R","I love to meet people.",
+"R","The most important part of my life is my loved ones.",
+"O","I am often described as well-rounded.",
+"O","I value socializing, but I make time for myself.",
+"O","I care about self-improvement.",
+"O","I never want to stop learning.",
+"O","My career is important, but it's not everything.",
+"O","I have been called driven and self-motivated.",
+"Y","I want to make other people happy.",
+"Y","I have been called an optimist.",
+"Y","I have come to terms with hardship and choose to remain upbeat.",
+"Y","I value being kind to everyone.",
+"Y","There is a light at the end of the tunnel.",
+"Y","I focus on the beauty of the small things.",
+"G","I am not interested in personal drama.",
+"G","I stay calm when dealing with conflict.",
+"G","Spending time in nature recharges me.",
+"G","I like to work with my hands.",
+"G","I am happy with a small circle of close friends.",
+"G","I am at peace when I am alone.",
+"B","It's important to let yourself feel your emotions fully.",
+"B","I love to dissect my own inner world.",
+"B","It is essential to take your time with decisions.",
+"B","I have been called emotionally intelligent.",
+"B","I have a strong sense of morals and values.",
+"B","I want to understand how other people feel and think.",
+"P","My brain works differently from most people's.",
+"P","I am always embarking on a new creative project.",
+"P","I don't take being called weird as an insult.",
+"P","I make others laugh a lot.",
+"P","It wouldn't be out of the ordinary for me to learn how to unicycle.",
+"P","There's nothing wrong with standing out in a crowd.",
+"Br","I get along with others easily.",
+"Br","People are drawn to me.",
+"Br","Sometimes, ignorance can be bliss.",
+"Br","I avoid difficult or painful topics.",
+"Br","I trust that most people are fundamentally good.",
+"Br","I'm scared of getting hurt."
 ];
 
 //update the question number label
@@ -168,7 +164,7 @@ function showResults(){
     if (OVERTONE == ""){
         OVERTONE = maxColor;
         if (brightnessPercent <= 40) OVERTONE_MODIFIER = "Dark";
-        else if (brightnessPercent <= 70) OVERTONE_MODIFIER = "True";
+        else if (brightnessPercent <= 60) OVERTONE_MODIFIER = "True";
         else OVERTONE_MODIFIER = "Light";
     }
 
@@ -177,7 +173,7 @@ function showResults(){
 
     //populate results page
     document.getElementById("overtone-text").innerHTML = 
-    "Your Overtone is " + OVERTONE_MODIFIER + " " + OVERTONE;
+    "Your Overtone is <b>" + OVERTONE_MODIFIER + " " + OVERTONE + "</b>.";   
 }
 
 //MAIN
