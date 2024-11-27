@@ -51,6 +51,13 @@ h2{
     width: 300px;
 }
 
+#home-text{
+    color: #000;
+}
+#slogan-text{
+    color: #555;
+}
+
 #question-label{
     color: #bbb;
     font-style: italic;
@@ -128,6 +135,14 @@ h2{
     text-align: center;
     border-radius: 4px;
     cursor: pointer;
+}
+
+#play-button{
+    width: 150px;
+    background: linear-gradient(to right, rgb(4, 2, 138), rgb(69, 219, 219));
+    color: #fff;
+    border: 0px;
+    font-size: large;
 }
 
 .btn:disabled{
