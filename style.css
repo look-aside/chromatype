@@ -17,7 +17,7 @@ body {
     overflow: hidden;
     position: fixed;
     overflow:hidden;
-    animation: change-color-anim 20s linear infinite;
+    animation: change-color-anim 30s linear infinite;
 }
 
 #logo-top{
@@ -30,16 +30,16 @@ body {
 
 @keyframes change-color-anim {
 	0%,100%{
-		background-color: #865b99;
+		background-color: rgb(4, 2, 138);
 	}
     25%{
-        background-color: #5995c5;
+        background-color:  rgb(30, 76, 141);
     }
 	50%{
-		background-color: #98557a;
+		background-color:  rgb(38, 145, 145); 
 	}
     75%{
-		background-color: #5250a1;
+        background-color:  rgb(30, 76, 141);
 	}
 }
 
@@ -54,7 +54,7 @@ h2{
 #question-label{
     color: #bbb;
     font-style: italic;
-    font-size: large;
+    font-size: medium;
 }
 
 .slider{
@@ -64,7 +64,7 @@ h2{
     margin-bottom: 15px;
     height: 15px;
     border-radius: 7px;
-    background: linear-gradient(to right, rgb(4, 24, 112), rgb(240, 87, 113));
+    background: linear-gradient(to right, rgb(4, 2, 138), rgb(69, 219, 219));
     outline: none;
 
     opacity: 0.7;
@@ -83,7 +83,7 @@ h2{
     cursor: pointer;
   }
 
-#quiz, #results{
+#quiz, #results, #home{
     background-color: #fff;
     max-width: 500px;
     margin: 0 auto;
@@ -99,9 +99,11 @@ h2{
 
 #disagree-text{
     text-align: left;
+    font-size: medium;
 }
 #agree-text{
     text-align: right;
+    font-size: medium;
 }
 
 .position-label{

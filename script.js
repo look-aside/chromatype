@@ -3,10 +3,12 @@ questionText = document.getElementById("question-text");
 questionLabel = document.getElementById("question-label");
 prevBtn = document.getElementById("prev-button");
 nextBtn = document.getElementById("next-button");
+playBtn = document.getElementById("play-button");
 slider = document.getElementById("slider");
 
 quizDiv = document.getElementById("quiz");
 resultsDiv = document.getElementById("results");
+homeDiv = document.getElementById("home");
 
 //progress vars
 questionNumber = 1;
@@ -78,6 +80,7 @@ function updateQuestion(){
 //set up the quiz from question 1
 function startQuiz(){  
     resultsDiv.style.display = 'none';
+    homeDiv.style.display = 'none';
     quizDiv.style.display = 'block';
 
     questionNumber = 1;
@@ -87,6 +90,12 @@ function startQuiz(){
 
     //grey out the prev button
     prevBtn.disabled = true;
+}
+
+function homePage(){
+    resultsDiv.style.display = 'none';
+    homeDiv.style.display = 'block';
+    quizDiv.style.display = 'none';
 }
 
 //take in the data and go to the next question
@@ -128,6 +137,7 @@ function showResults(){
     //update display
     quizDiv.style.display = 'none';
     resultsDiv.style.display = 'block';
+    homeDiv.style.display = 'none';
 
     //calculate the color points
     for (i = 0; i < totalQuestions; i ++){
@@ -171,8 +181,11 @@ function showResults(){
     "Your Undertone is <b>" + UNDERTONE + "</b>.";    
 }
 
-//MAIN
-startQuiz();
-
 nextBtn.onclick = function(){ nextQuestion();};
 prevBtn.onclick = function(){ prevQuestion();};
+playBtn.onclick = function(){ startQuiz();};
+
+
+//MAIN
+homePage();
+//showResults();
