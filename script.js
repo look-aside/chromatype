@@ -4,6 +4,8 @@ questionLabel = document.getElementById("question-label");
 prevBtn = document.getElementById("prev-button");
 nextBtn = document.getElementById("next-button");
 playBtn = document.getElementById("play-button");
+retakeBtn = document.getElementById("retake-button");
+homeBtn = document.getElementById("home-button");
 slider = document.getElementById("slider");
 
 quizDiv = document.getElementById("quiz");
@@ -184,8 +186,9 @@ function showResults(){
 nextBtn.onclick = function(){ nextQuestion();};
 prevBtn.onclick = function(){ prevQuestion();};
 playBtn.onclick = function(){ startQuiz();};
-
+retakeBtn.onclick = function(){ startQuiz();};
+homeBtn.onclick = function(){ homePage();};
 
 //MAIN
 homePage();
-//showResults();
+showResults();

@@ -55,7 +55,7 @@ h2{
     color: #000;
 }
 #slogan-text{
-    color: #555;
+    color: #bbb;
 }
 
 #question-label{
@@ -139,10 +139,10 @@ h2{
 
 #play-button{
     width: 150px;
-    background: linear-gradient(to right, rgb(4, 2, 138), rgb(69, 219, 219));
+    background: linear-gradient(to right, rgb(7, 5, 157), rgb(4, 71, 206), rgb(0, 105, 190), rgb(2, 169, 210));
     color: #fff;
     border: 0px;
-    font-size: large;
+    font-size: medium;
 }
 
 .btn:disabled{
