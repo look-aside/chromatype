@@ -95,6 +95,7 @@ h2{
     margin: 0 auto;
     position: absolute;
     top: 45%;
+    top: 370px;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
@@ -166,6 +167,12 @@ h2{
     color: #fff;
     border: 0px;
     font-size: medium;
+}
+
+.info-text{
+    color:#000000;
+    text-align: left;
+    font-size: small;
 }
 
 .btn:disabled{
