@@ -43,12 +43,10 @@ body {
 	}
 }
 
-h1, h2{
-    padding: 10px;
-}
-
 h2{
+    padding: 10px;
     width: 300px;
+    text-align: center;
 }
 
 #home-text{
@@ -93,6 +91,7 @@ h2{
 #quiz, #results, #home{
     background-color: #fff;
     max-width: 500px;
+    min-width: 400px;
     margin: 0 auto;
     position: absolute;
     top: 45%;
@@ -137,6 +136,30 @@ h2{
     cursor: pointer;
 }
 
+.circle{
+    position: absolute; /* the necessary "magic" here */
+    border-radius: 100%;
+    border: 0px solid black;
+}
+
+#overtone-circle {
+    z-index: 1; 
+    left: 30px;
+    top: 30px;
+    width: 75px;
+    height: 75px;
+    background-color: rgb(197, 197, 197);
+}
+#undertone-circle {
+    z-index: 2; 
+    left: 85px; 
+    top: 68px;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(143, 143, 143);
+    border: 2px solid white;
+}
+
 #play-button{
     width: 150px;
     background: linear-gradient(to right, rgb(7, 5, 157), rgb(4, 71, 206), rgb(0, 105, 190), rgb(2, 169, 210));
@@ -152,4 +175,5 @@ h2{
 .results-text{
     color: #888;
     padding: 4px;
+    text-align: right;
 }
