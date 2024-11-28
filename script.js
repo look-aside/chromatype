@@ -71,8 +71,6 @@ function homePage(){
 }
 
 function famResults(){
-    
-
     //update display
     quizDiv.style.display = 'none';
     resultsDiv.style.display = 'none';
@@ -80,6 +78,11 @@ function famResults(){
     famDiv.style.display = 'block';
     typeDiv.style.display = 'none';
     undertoneDiv.style.display = 'none';
+
+    //populate info
+    document.getElementById("color-family").innerHTML = "<b>" + OVERTONE + "</b>";
+    document.getElementById("fam-info").innerHTML = getFamilyInfo(OVERTONE);
+    
 }
 
 function typeResults(){
@@ -90,6 +93,10 @@ function typeResults(){
     famDiv.style.display = 'none';
     typeDiv.style.display = 'block';
     undertoneDiv.style.display = 'none';
+    
+    //populate info
+    document.getElementById("color-family").innerHTML = "<b>" + OVERTONE_MODIFIER + " " + OVERTONE + "</b>";
+    //document.getElementById("fam-info").innerHTML = getFamilyInfo(OVERTONE);
 }
 
 function undertoneResults(){
@@ -245,4 +252,4 @@ results3Btn.onclick = function(){ showResults();};
 
 //main
 homePage();
-//showResults();
+showResults();

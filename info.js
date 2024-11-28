@@ -120,7 +120,6 @@ function getAdjectiveFamily(color){
 
 
 //FAMILY/TYPE INFO
-
 redInfo = "REDS are deeply <i>people-oriented</i>. They are always making plans, seeking quality time with friends and family, and making an effort to meet new people. They might be a children's entertainer, a community organizer, a DJ, or a religious leader. Reds want to make a difference in many peoples' lives.";
 orangeInfo = "orng";
 yellowInfo = "yello";
@@ -129,7 +128,7 @@ blueInfo = "blu";
 purpleInfo = "ourple";
 outlierInfo = "outlier";
 
-function getFamilyInfo(){
+function getFamilyInfo(color){
     if (color == "Red") return redInfo;
     else if (color == "Orange") return orangeInfo;
     else if (color == "Yellow") return yellowInfo;
