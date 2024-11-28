@@ -73,10 +73,30 @@ const questions = [
 const hexCodes = [
     "#f6b1bc", //light red
     "#f04343", //true red
-    "#a61711" //dark red
+    "#a61711", //dark red
+    "#fbaf6d", //l orange
+    "#ee731b", //t orange
+    "#bb560e", //d orange
+    "#ffdc73", //l yellow
+    "#fab60e", //t yellow
+    "#cf7f0c", //d yellow
+    "#e9f662", //l green
+    "#73dd1e", //t green
+    "#1a990a", //d green
+    "#b0e6f3", //l blue
+    "#55ade7", //t blue
+    "#2f63c3", //d blue
+    "#cfa0f1", //l purple
+    "#a44ee3", //t purple
+    "#55239e"  //d purple
 ]
 const hexCodeNames = [
-    "Light Red", "True Red", "Dark Red"
+    "Light Red", "True Red", "Dark Red",
+    "Light Orange", "True Orange", "Dark orange",
+    "Light Yellow", "True Yellow", "Dark Yellow",
+    "Light Green", "True Green", "Dark Green",
+    "Light Blue", "True Blue", "Dark Blue",
+    "Light Purple", "True Purple", "Dark Purple"
 ]
 
 //update the question number label
@@ -194,13 +214,15 @@ function showResults(){
     document.getElementById("undertone-text").innerHTML = 
     "Your Undertone is <b>" + UNDERTONE + "</b>.";    
 
-    //circle colors
+    //circle colors 
     document.getElementById("overtone-circle").style.backgroundColor = getHex(OVERTONE_MODIFIER + " " + OVERTONE);
     document.getElementById("undertone-circle").style.backgroundColor = getHex("True " + UNDERTONE);
 }
 
 //given the name of the color, return the hex code
 function getHex(colorName){
+    if (colorName == "White") return "#fff";
+    if (colorName == "Black") return "#000";
     hexIndex = hexCodeNames.indexOf(colorName);
     return hexCodes[hexIndex];
 }
@@ -213,4 +235,4 @@ homeBtn.onclick = function(){ homePage();};
 
 //MAIN
 homePage();
-showResults();
+//showResults();
