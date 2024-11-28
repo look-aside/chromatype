@@ -6,11 +6,21 @@ nextBtn = document.getElementById("next-button");
 playBtn = document.getElementById("play-button");
 retakeBtn = document.getElementById("retake-button");
 homeBtn = document.getElementById("home-button");
+famBtn = document.getElementById("family-button");
+typeBtn = document.getElementById("type-button");
+undertoneBtn = document.getElementById("undertone-button");
+results1Btn = document.getElementById("results1-button");
+results2Btn = document.getElementById("results2-button");
+results3Btn = document.getElementById("results3-button");
+
 slider = document.getElementById("slider");
 
 quizDiv = document.getElementById("quiz");
 resultsDiv = document.getElementById("results");
 homeDiv = document.getElementById("home");
+famDiv = document.getElementById("family-info");
+typeDiv = document.getElementById("type-info");
+undertoneDiv = document.getElementById("undertone-info");
 
 //progress vars
 questionNumber = 1;
@@ -22,6 +32,9 @@ const answerValues = Array(totalQuestions).fill(0); //the answer (1-100) of each
 const colorNamesIndex = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple"];
 var colorValues = [0,0,0,0,0,0]; //r, o, y, g, b, p, brightness
 var brightness = 0;
+
+WHITE_THRESHOLD = 70; //all colors avg is above this to be white
+BLACK_THRESHOLD = 50; //on average, disagreed with all questions
 
 //QUESTIONS
 const questions = [
@@ -68,7 +81,6 @@ const questions = [
     "Y","I have been called an optimist.",
     "Br","People are drawn to me."
 ];
-
 //COLORS
 const hexCodes = [
     "#f6b1bc", //light red
@@ -128,6 +140,39 @@ function homePage(){
     resultsDiv.style.display = 'none';
     homeDiv.style.display = 'block';
     quizDiv.style.display = 'none';
+    famDiv.style.display = 'none';
+    typeDiv.style.display = 'none';
+    undertoneDiv.style.display = 'none';
+}
+
+function famResults(){
+    //update display
+    quizDiv.style.display = 'none';
+    resultsDiv.style.display = 'none';
+    homeDiv.style.display = 'none';
+    famDiv.style.display = 'block';
+    typeDiv.style.display = 'none';
+    undertoneDiv.style.display = 'none';
+}
+
+function typeResults(){
+    //update display
+    quizDiv.style.display = 'none';
+    resultsDiv.style.display = 'none';
+    homeDiv.style.display = 'none';
+    famDiv.style.display = 'none';
+    typeDiv.style.display = 'block';
+    undertoneDiv.style.display = 'none';
+}
+
+function undertoneResults(){
+    //update display
+    quizDiv.style.display = 'none';
+    resultsDiv.style.display = 'none';
+    homeDiv.style.display = 'none';
+    famDiv.style.display = 'none';
+    typeDiv.style.display = 'none';
+    undertoneDiv.style.display = 'block';
 }
 
 //take in the data and go to the next question
@@ -170,6 +215,9 @@ function showResults(){
     quizDiv.style.display = 'none';
     resultsDiv.style.display = 'block';
     homeDiv.style.display = 'none';
+    famDiv.style.display = 'none';
+    typeDiv.style.display = 'none';
+    undertoneDiv.style.display = 'none';
 
     //calculate the color points
     for (i = 0; i < totalQuestions; i ++){
@@ -184,30 +232,53 @@ function showResults(){
         if (thisColor == "Br") brightness += parseInt(thisAnswer);
     }
 
-    //calculate the overtone and undertone
-    let maxVal = Math.max(...colorValues);
-    let maxIndex = colorValues.indexOf(maxVal);
-    let maxColor = colorNamesIndex[maxIndex];
-    brightnessPercent = brightness/totalBrQuestions;
-    
-    //calculate overtone first
+    var isBlack = true;
+    var isWhite = true;
+
+    //check if all color values are above or below threshold
+    for (i = 0; i < 6; i ++){
+        avg = colorValues[i]/6; //the average response to this color questions
+        if (avg < WHITE_THRESHOLD) isWhite = false;
+        if (avg > BLACK_THRESHOLD) isBlack = false;
+    }
+
     OVERTONE = "";
     OVERTONE_MODIFIER = "";
+    UNDERTONE = "";
 
-    OVERTONE = maxColor;
-    if (brightnessPercent <= 40) OVERTONE_MODIFIER = "Dark";
-    else if (brightnessPercent <= 60) OVERTONE_MODIFIER = "True";
-    else OVERTONE_MODIFIER = "Light";
-    
-    //then undertone - calculate second-most max
-    colorValues[maxIndex] = 0; //zero out the max (overtone)
-    let secondMaxVal = Math.max(...colorValues);
-    let secondMaxIndex = colorValues.indexOf(secondMaxVal);
-    let secondMaxColor = colorNamesIndex[secondMaxIndex];
-    UNDERTONE = secondMaxColor;
-    
-    //populate results page
-    
+    if (isBlack || isWhite){
+        if (isBlack) OVERTONE = "Black";
+        else OVERTONE = "White";
+        //undertone is what normally would be the overtone: max individual value
+        let maxVal = Math.max(...colorValues);
+        let maxIndex = colorValues.indexOf(maxVal);
+        UNDERTONE = colorNamesIndex[maxIndex];
+    }
+
+    else{
+        //calculate the overtone and undertone
+        let maxVal = Math.max(...colorValues);
+        let maxIndex = colorValues.indexOf(maxVal);
+        OVERTONE = colorNamesIndex[maxIndex];
+        brightnessPercent = (brightness/totalBrQuestions);
+
+        if (brightnessPercent <= 40) OVERTONE_MODIFIER = "Dark";
+        else if (brightnessPercent <= 60) OVERTONE_MODIFIER = "True";
+        else OVERTONE_MODIFIER = "Light";
+        
+        //then undertone - calculate second-most max
+        colorValues[maxIndex] = 0; //zero out the max (overtone)
+        let secondMaxVal = Math.max(...colorValues);
+        let secondMaxIndex = colorValues.indexOf(secondMaxVal);
+        UNDERTONE = colorNamesIndex[secondMaxIndex];
+    }
+
+    //for testing!
+    OVERTONE = "White";
+    OVERTONE_MODIFIER = "";
+    UNDERTONE = "Orange";
+
+    //populate results page:
     //overtone and undertone labels
     document.getElementById("overtone-text").innerHTML = 
     "Your Overtone is <b>" + OVERTONE_MODIFIER + " " + OVERTONE + "</b>.";  
@@ -216,13 +287,59 @@ function showResults(){
 
     //circle colors 
     document.getElementById("overtone-circle").style.backgroundColor = getHex(OVERTONE_MODIFIER + " " + OVERTONE);
+    if (OVERTONE == "White") document.getElementById("overtone-circle").style.border = "1px solid #ddd";
     document.getElementById("undertone-circle").style.backgroundColor = getHex("True " + UNDERTONE);
+
+    //recap text (you are: adjective, adjective, adjective)
+    document.getElementById("recap-text").innerHTML = "<b>You are: " + "<i>" + 
+    getAdjectiveType(OVERTONE_MODIFIER + " " + OVERTONE) + ", " +
+    getAdjectiveFamily(OVERTONE) + ", " + getAdjectiveFamily(UNDERTONE) + "</i></b>";
+}
+
+//for the recap text
+function getAdjectiveType(color){
+    //red
+    if (color == "Light Red") return "social";
+    else if (color == "True Red") return "loving";
+    else if (color == "Dark Red") return "passionate";
+    //orange
+    else if (color == "Light Orange") return "intelligent";
+    else if (color == "True Orange") return "well-rounded";
+    else if (color == "Dark Orange") return "successful";
+    //yellow
+    else if (color == "Light Yellow") return "optimistic";
+    else if (color == "True Yellow") return "kind";
+    else if (color == "Dark Yellow") return "humanist";
+    //green
+    else if (color == "Light Green") return "calm";
+    else if (color == "True Green") return "collected";
+    else if (color == "Dark Green") return "serene";
+    //blue
+    else if (color == "Light Blue") return "trustworthy";
+    else if (color == "True Blue") return "empathetic";
+    else if (color == "Dark Blue") return "layered";
+    //purple
+    else if (color == "Light Purple") return "silly";
+    else if (color == "True Purple") return "whimsical";
+    else if (color == "Dark Purple") return "mythical";
+    //outliers - remember to add the space in beginning
+    else if (color == " White") return "chameleon";
+    else if (color == " Black") return "pragmatist";
+}
+function getAdjectiveFamily(color){
+    if (color == "Red") return "warm";
+    else if (color == "Orange") return "curious";
+    else if (color == "Yellow") return "joyful";
+    else if (color == "Green") return "peaceful";
+    else if (color == "Blue") return "introspective";
+    else if (color == "Purple") return "creative";
+    else if (color == "White" || color == "Black") return "nonconformist";
 }
 
 //given the name of the color, return the hex code
 function getHex(colorName){
-    if (colorName == "White") return "#fff";
-    if (colorName == "Black") return "#000";
+    if (colorName == " White") return "#ffffff";
+    if (colorName == " Black") return "#000000";
     hexIndex = hexCodeNames.indexOf(colorName);
     return hexCodes[hexIndex];
 }
@@ -232,7 +349,13 @@ prevBtn.onclick = function(){ prevQuestion();};
 playBtn.onclick = function(){ startQuiz();};
 retakeBtn.onclick = function(){ startQuiz();};
 homeBtn.onclick = function(){ homePage();};
+famBtn.onclick = function(){ famResults(); };
+typeBtn.onclick = function(){ typeResults(); };
+undertoneBtn.onclick = function(){ undertoneResults(); };
+results1Btn.onclick = function(){ showResults();};
+results2Btn.onclick = function(){ showResults();};
+results3Btn.onclick = function(){ showResults();};
 
-//MAIN
+//main
 homePage();
-//showResults();
+showResults();

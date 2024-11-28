@@ -88,7 +88,7 @@ h2{
     cursor: pointer;
   }
 
-#quiz, #results, #home{
+#quiz, #results, #home, #family-info, #type-info, #undertone-info{
     background-color: #fff;
     max-width: 500px;
     min-width: 400px;
@@ -124,12 +124,29 @@ h2{
     font-size: medium;
 
     background-color: #ffffff;
-    color: #bbb;
+    color: #777;
     border: 1px solid #bbb;
 
     width: 70px;
     padding: 7px;
     margin-top: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.learn-button{
+    font-weight: 500;
+    font-size: medium;
+
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+
+    width: 280px;
+    padding: 5px;
+    margin-top: 10px;
     margin-left: 5px;
     margin-right: 5px;
     text-align: center;
@@ -163,10 +180,10 @@ h2{
 
 #play-button{
     width: 150px;
-    background: linear-gradient(to right, rgb(7, 5, 157), rgb(4, 71, 206), rgb(0, 105, 190), rgb(2, 169, 210));
+    background: linear-gradient(to top, rgb(12, 9, 156), rgb(12, 116, 201));
     color: #fff;
     border: 0px;
-    font-size: medium;
+    font-size: large;
 }
 
 .info-text{
@@ -180,7 +197,13 @@ h2{
 }
 
 .results-text{
-    color: #888;
+    color: #333;
     padding: 4px;
     text-align: right;
+}
+.recap-text{
+    color: #333;
+    padding: 4px;
+    text-align: center;
+    font-size: x-large;
 }
