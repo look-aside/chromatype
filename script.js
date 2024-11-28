@@ -69,6 +69,16 @@ const questions = [
     "Br","People are drawn to me."
 ];
 
+//COLORS
+const hexCodes = [
+    "#f6b1bc", //light red
+    "#f04343", //true red
+    "#a61711" //dark red
+]
+const hexCodeNames = [
+    "Light Red", "True Red", "Dark Red"
+]
+
 //update the question number label
 function updateLabel(){
     questionLabel.innerHTML = "Question " + questionNumber + "/" + totalQuestions;
@@ -177,10 +187,22 @@ function showResults(){
     UNDERTONE = secondMaxColor;
     
     //populate results page
+    
+    //overtone and undertone labels
     document.getElementById("overtone-text").innerHTML = 
     "Your Overtone is <b>" + OVERTONE_MODIFIER + " " + OVERTONE + "</b>.";  
     document.getElementById("undertone-text").innerHTML = 
     "Your Undertone is <b>" + UNDERTONE + "</b>.";    
+
+    //circle colors
+    document.getElementById("overtone-circle").style.backgroundColor = getHex(OVERTONE_MODIFIER + " " + OVERTONE);
+    document.getElementById("undertone-circle").style.backgroundColor = getHex("True " + UNDERTONE);
+}
+
+//given the name of the color, return the hex code
+function getHex(colorName){
+    hexIndex = hexCodeNames.indexOf(colorName);
+    return hexCodes[hexIndex];
 }
 
 nextBtn.onclick = function(){ nextQuestion();};
