@@ -221,9 +221,9 @@ function showResults(){
     }
 
     //for testing!
-    OVERTONE = "Yellow";
-    OVERTONE_MODIFIER = "Light";
-    UNDERTONE = "Blue";
+    //OVERTONE = "Yellow";
+    //OVERTONE_MODIFIER = "Light";
+    //UNDERTONE = "Blue";
 
     //populate results page:
     //overtone and undertone labels
@@ -265,4 +265,4 @@ results3Btn.onclick = function(){ showResults();};
 
 //main
 homePage();
-showResults();
+//showResults();
