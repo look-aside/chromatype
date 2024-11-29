@@ -78,11 +78,15 @@ function famResults(){
     famDiv.style.display = 'block';
     typeDiv.style.display = 'none';
     undertoneDiv.style.display = 'none';
-
     //populate info
-    document.getElementById("color-family").innerHTML = "<b>" + OVERTONE + "</b>";
-    document.getElementById("fam-info").innerHTML = getFamilyInfo(OVERTONE);
-    
+    family = OVERTONE;
+    if (OVERTONE == "White" || OVERTONE == "Black") family = "Outliers"
+    //display name of color family
+    document.getElementById("color-family").innerHTML = "<b>" + family + "</b>";    
+    //if not white or black, change text color accordingly
+    if (OVERTONE_MODIFIER != "") document.getElementById("color-family").style.color = getHex("True " + OVERTONE);
+    //populate paragraph
+    document.getElementById("fam-info").innerHTML = getFamilyInfo(OVERTONE);   
 }
 
 function typeResults(){
@@ -95,8 +99,11 @@ function typeResults(){
     undertoneDiv.style.display = 'none';
     
     //populate info
-    document.getElementById("color-family").innerHTML = "<b>" + OVERTONE_MODIFIER + " " + OVERTONE + "</b>";
-    //document.getElementById("fam-info").innerHTML = getFamilyInfo(OVERTONE);
+    document.getElementById("type-family").innerHTML = "<b>" + OVERTONE_MODIFIER + " " + OVERTONE + "</b>";    
+    //if not white or black, change text color accordingly
+    if (OVERTONE_MODIFIER != "") document.getElementById("type-family").style.color = getHex(OVERTONE_MODIFIER + " " + OVERTONE);
+    //populate paragraph
+    document.getElementById("type-info-text").innerHTML = getTypeInfo(OVERTONE_MODIFIER + " " + OVERTONE); 
 }
 
 function undertoneResults(){
@@ -107,6 +114,12 @@ function undertoneResults(){
     famDiv.style.display = 'none';
     typeDiv.style.display = 'none';
     undertoneDiv.style.display = 'block';
+    //populate info
+    document.getElementById("undertone-family").innerHTML = "<b>" + UNDERTONE + "</b>";    
+    //if not white or black, change text color accordingly
+    if (OVERTONE_MODIFIER != "") document.getElementById("undertone-family").style.color = getHex("True " + UNDERTONE);
+    //populate paragraph
+    document.getElementById("undertone-info-text").innerHTML = getFamilyInfo(UNDERTONE); 
 }
 
 //take in the data and go to the next question
@@ -208,9 +221,9 @@ function showResults(){
     }
 
     //for testing!
-    //OVERTONE = "White";
-    //OVERTONE_MODIFIER = "";
-    //UNDERTONE = "Orange";
+    OVERTONE = "Yellow";
+    OVERTONE_MODIFIER = "Light";
+    UNDERTONE = "Blue";
 
     //populate results page:
     //overtone and undertone labels

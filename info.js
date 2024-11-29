@@ -120,13 +120,13 @@ function getAdjectiveFamily(color){
 
 
 //FAMILY/TYPE INFO
-redInfo = "REDS are deeply <i>people-oriented</i>. They are always making plans, seeking quality time with friends and family, and making an effort to meet new people. They might be a children's entertainer, a community organizer, a DJ, or a religious leader. Reds want to make a difference in many peoples' lives.";
-orangeInfo = "orng";
-yellowInfo = "yello";
-greenInfo = "grn";
-blueInfo = "blu";
-purpleInfo = "ourple";
-outlierInfo = "outlier";
+redInfo = "REDS are deeply <i>people-oriented</i>. They are always making plans, seeking quality time with friends and family, and making an effort to meet new people. <br><br>They might be a children's entertainer, a community organizer, a DJ, or a religious leader. Reds want to make a difference in many peoples' lives.";
+orangeInfo = "ORANGES are the most well-rounded color family. As the true warm color family, they have a balanced and extroverted personality that lets them connect meaningfully with others while maintaining a thriving personal life. <br><br>Oranges are always developing new skills and taking on new hobbies. They are inspired by genuine curiosity for the world around them and they love to learn. They may be writers, podcast hosts, wedding photographers, or astronauts. They will inspire others with their open hearts and mature minds.";
+yellowInfo = "YELLOWS are the most joyful color family. Known for being bubbly and optimistic, they're not one-dimensional and have a more analytical side as well. They will always have a kind word for a friend and a smile for a stranger. <br><br>Yellows often have a rich personal history; many people may not understand the journey it took for them to get to where they are today. Yellows might be cartoonists, restaurant hosts, motivational speakers, or dance instructors.";
+greenInfo = "GREENS are a peaceful color type that bridge the gap between cool and warm. With the contentedness of yellows and the emotional intelligence of blues, greens may seem to have it all; they do, however, struggle with compromising their understated nature with the busyness of modern life. <br><br>Greens might be yoga instructors, baristas, homemakers, carpenters, or farmers.";
+blueInfo = "BLUES are the most emotionally intelligent color family. As the true cool family, they need plenty of time alone and they highly value the power of introspection. <br><br>Blues may be therapists, stay-at-home parents, musicians, museum curators, or park rangers. Although it may take them a while to form bonds, they are a valuable presence in others' lives.";
+purpleInfo = "PURPLES are the most unusual color family. Purples hold a true whimsy and curiosity for the world that isn't present in most adults. While buttoned-up types may find Purples to be childish or unserious, Purples can bring delight to those who are open-minded enough to appreciate their quirks. <br><br>They may be comedy writers, trapeze artists, explorers, filmmakers, or multihyphenates. They get along well with most light and warm types but may form the deepest connections with discerning cool types. ";
+outlierInfo = "OUTLIERS are the rarest color family. You are defined by an unconventional outlook on the world and on others. While white and black types might seem like opposites, they have a strong kinship and may be the definition of opposites attract. These types are true mavericks: they may end up as revolutionaries, trendsetters, hermits, world leaders, inventors, or criminals. <br><br>Outliers have unique connections with others; it is very difficult to predict who they will like or dislike. They have the potential for great good and great harm. Make your decisions thoughtfully and leverage your skills with grace.";
 
 function getFamilyInfo(color){
     if (color == "Red") return redInfo;

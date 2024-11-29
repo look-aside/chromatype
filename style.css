@@ -162,7 +162,7 @@ h2{
 
 #overtone-circle {
     z-index: 1; 
-    left: 45px;
+    left: 35px;
     top: 30px;
     width: 75px;
     height: 75px;
@@ -170,7 +170,7 @@ h2{
 }
 #undertone-circle {
     z-index: 2; 
-    left: 95px; 
+    left: 85px; 
     top: 68px;
     width: 40px;
     height: 40px;
