@@ -36,6 +36,10 @@ var brightness = 0;
 WHITE_THRESHOLD = 70; //all colors avg is above this to be white
 BLACK_THRESHOLD = 50; //on average, disagreed with all questions
 
+OVERTONE = "";
+OVERTONE_MODIFIER = "";
+UNDERTONE = "";
+
 //update the question number label
 function updateLabel(){
     questionLabel.innerHTML = "Question " + questionNumber + "/" + totalQuestions;
@@ -189,10 +193,6 @@ function showResults(){
         if (avg > BLACK_THRESHOLD) isBlack = false;
     }
 
-    OVERTONE = "";
-    OVERTONE_MODIFIER = "";
-    UNDERTONE = "";
-
     if (isBlack || isWhite){
         if (isBlack) OVERTONE = "Black";
         else OVERTONE = "White";
@@ -243,6 +243,34 @@ function showResults(){
     getAdjectiveFamily(OVERTONE) + ", " + getAdjectiveFamily(UNDERTONE) + "</i></b>";
 }
 
+//Need to not re-calculate every time!!
+function showResultsDontRecalculate(){
+    //update display
+    quizDiv.style.display = 'none';
+    resultsDiv.style.display = 'block';
+    homeDiv.style.display = 'none';
+    famDiv.style.display = 'none';
+    typeDiv.style.display = 'none';
+    undertoneDiv.style.display = 'none';
+
+    //populate results page:
+    //overtone and undertone labels
+    document.getElementById("overtone-text").innerHTML = 
+    "Your Overtone is <b>" + OVERTONE_MODIFIER + " " + OVERTONE + "</b>.";  
+    document.getElementById("undertone-text").innerHTML = 
+    "Your Undertone is <b>" + UNDERTONE + "</b>.";    
+
+    //circle colors 
+    document.getElementById("overtone-circle").style.backgroundColor = getHex(OVERTONE_MODIFIER + " " + OVERTONE);
+    if (OVERTONE == "White") document.getElementById("overtone-circle").style.border = "1px solid #ddd";
+    document.getElementById("undertone-circle").style.backgroundColor = getHex("True " + UNDERTONE);
+
+    //recap text (you are: adjective, adjective, adjective)
+    document.getElementById("recap-text").innerHTML = "<b>You are: " + "<i>" + 
+    getAdjectiveType(OVERTONE_MODIFIER + " " + OVERTONE) + ", " +
+    getAdjectiveFamily(OVERTONE) + ", " + getAdjectiveFamily(UNDERTONE) + "</i></b>";
+}
+
 //given the name of the color, return the hex code
 function getHex(colorName){
     if (colorName == " White") return "#ffffff";
@@ -259,9 +287,9 @@ homeBtn.onclick = function(){ homePage();};
 famBtn.onclick = function(){ famResults(); };
 typeBtn.onclick = function(){ typeResults(); };
 undertoneBtn.onclick = function(){ undertoneResults(); };
-results1Btn.onclick = function(){ showResults();};
-results2Btn.onclick = function(){ showResults();};
-results3Btn.onclick = function(){ showResults();};
+results1Btn.onclick = function(){ showResultsDontRecalculate();};
+results2Btn.onclick = function(){ showResultsDontRecalculate();};
+results3Btn.onclick = function(){ showResultsDontRecalculate();};
 
 //main
 homePage();
