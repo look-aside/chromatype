@@ -51,6 +51,7 @@ h2{
 
 #home-text{
     color: #000;
+    font-size: medium;
 }
 #slogan-text{
     color: #bbb;
@@ -180,7 +181,8 @@ h2{
 
 #play-button{
     width: 150px;
-    background: linear-gradient(to top, rgb(12, 9, 156), rgb(12, 116, 201));
+    /* background: linear-gradient(to top, rgb(12, 9, 156), rgb(12, 116, 201)); */
+    background: rgb(4, 2, 138);
     color: #fff;
     border: 0px;
     font-size: large;
