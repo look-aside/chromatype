@@ -33,8 +33,8 @@ const colorNamesIndex = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple"];
 var colorValues = [0,0,0,0,0,0]; //r, o, y, g, b, p, brightness
 var brightness = 0;
 
-WHITE_THRESHOLD = 70; //all colors avg is above this to be white
-BLACK_THRESHOLD = 50; //on average, disagreed with all questions
+WHITE_THRESHOLD = 67; //all colors avg is above this to be white
+BLACK_THRESHOLD = 53; //on average, disagreed with all questions
 
 OVERTONE = "";
 OVERTONE_MODIFIER = "";
@@ -56,13 +56,19 @@ function startQuiz(){
     homeDiv.style.display = 'none';
     quizDiv.style.display = 'block';
 
+    //reset variables
     questionNumber = 1;
     colorValues = [0,0,0,0,0,0];
+    brightness = 0;
+    
     updateLabel();
     updateQuestion();
 
     //grey out the prev button
     prevBtn.disabled = true;
+
+    //undo the Results button back to Next
+    nextBtn.innerHTML = "Next";
 }
 
 function homePage(){
@@ -183,6 +189,17 @@ function showResults(){
         if (thisColor == "Br") brightness += parseInt(thisAnswer);
     }
 
+    /*
+    FOR DEBUGGING ALGORITHM
+    
+    alert("R: " + colorValues[0]/6 + 
+        " O: " + colorValues[1]/6 +
+        " Y: " + colorValues[2]/6 +
+        " G: " + colorValues[3]/6 +
+        " B: " + colorValues[4]/6 +
+        " P: " + colorValues[5]/6 +
+        " Br: " + brightness/totalBrQuestions);
+    */
     var isBlack = true;
     var isWhite = true;
 
@@ -196,6 +213,7 @@ function showResults(){
     if (isBlack || isWhite){
         if (isBlack) OVERTONE = "Black";
         else OVERTONE = "White";
+        OVERTONE_MODIFIER = "";
         //undertone is what normally would be the overtone: max individual value
         let maxVal = Math.max(...colorValues);
         let maxIndex = colorValues.indexOf(maxVal);
