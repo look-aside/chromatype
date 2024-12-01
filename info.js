@@ -152,32 +152,32 @@ darkRedInfo = " A passionate, feeling person, you will be part of many love affa
 "<li><b>Notes of:</b> velvet, blood orange, chili pepper</li></ul>";
 
 //oranges
-lightOrangeInfo = "" +
-"<br><br><ul><li><b>Best matches:</b> </li>" + 
-"<li><b>Most conflict:</b> </li>" + 
-"<li><b>Notes of:</b> </li></ul>";
-trueOrangeInfo = "" +
-"<br><br><ul><li><b>Best matches:</b> </li>" + 
-"<li><b>Most conflict:</b> </li>" + 
-"<li><b>Notes of:</b> </li></ul>";
-darkOrangeInfo = "" +
-"<br><br><ul><li><b>Best matches:</b> </li>" + 
-"<li><b>Most conflict:</b> </li>" + 
-"<li><b>Notes of:</b> </li></ul>";
+lightOrangeInfo = "You're all about growing as a person. You have a balanced sensibility and a strong sense of what's most important to you. You always know what's next on the to-do list, and what steps to take to make it happen, but you're also able to cut loose and prioritize rest when you need it." +
+"<br><br><ul><li><b>Best matches:</b>  all oranges, all greens, light purples</li>" + 
+"<li><b>Most conflict:</b> dark red, dark purple, black</li>" + 
+"<li><b>Notes of:</b> creamsicle, tulip, coral</li></ul>";
+trueOrangeInfo = "Charismatic and grounded, you know who you are and what you want— and how to get it. You're able to focus on yourself and your own growth while also uplifting your network of loved ones. Your balanced, mature sensibility will come in handy everywhere, whether it's the office, the kitchen table, or the bar." +
+"<br><br><ul><li><b>Best matches:</b> true orange, true red, true yellow</li>" + 
+"<li><b>Most conflict:</b> black, white, dark blue</li>" + 
+"<li><b>Notes of:</b> tangerine, chrysanthemum, sandstone</li></ul>";
+darkOrangeInfo = "Without you, there's a good chance your community, workplace, or family would fall apart. You're a solid pillar holding up those around you, and you might be the only person cut out for the task. With your sizable toolkit of skills and experiences, you can accomplish a lot. But remember to make time for yourself!" +
+"<br><br><ul><li><b>Best matches:</b> true green, true red, true blue</li>" + 
+"<li><b>Most conflict:</b> light colors, dark purple, black</li>" + 
+"<li><b>Notes of:</b> copper, autumn leaves, amber</li></ul>";
 
 //yello
-lightYellowInfo = "" +
-"<br><br><ul><li><b>Best matches:</b> </li>" + 
-"<li><b>Most conflict:</b> </li>" + 
-"<li><b>Notes of:</b> </li></ul>";
-trueYellowInfo = "" +
-"<br><br><ul><li><b>Best matches:</b> </li>" + 
-"<li><b>Most conflict:</b> </li>" + 
-"<li><b>Notes of:</b> </li></ul>";
-darkYellowInfo = "" +
-"<br><br><ul><li><b>Best matches:</b> </li>" + 
-"<li><b>Most conflict:</b> </li>" + 
-"<li><b>Notes of:</b> </li></ul>";
+lightYellowInfo = "With a bright disposition and a sunny smile, you bring light to any room you enter. You're well-liked and are able to form connections easily. You have a genuine desire to make the world a better place and you will pursue that goal in many ways, from volunteering to making friends to creating art." +
+"<br><br><ul><li><b>Best matches:</b> light yellow, light red, true blue</li>" + 
+"<li><b>Most conflict:</b> dark blue, dark green, black</li>" + 
+"<li><b>Notes of:</b> lemonade, potato chip, rubber ducky</li></ul>";
+trueYellowInfo = "A truly happy and sweet person, you bring light to those around you. You're not naive and are well aware of the struggles of life, but you know that the best response to hard times is care and kindness. You may anger those less empathetic than you with your selflessness and quiet optimism, but don't let them dim your light." +
+"<br><br><ul><li><b>Best matches:</b> true red, all yellows, all greens</li>" + 
+"<li><b>Most conflict:</b> dark blue, light blue, black</li>" + 
+"<li><b>Notes of:</b> sunflower, lemon drop, pineapple</li></ul>";
+darkYellowInfo = "The darkest shade of the happiest hue, you aren't a simple optimist. You have a grounded belief that there is a tremendous amount of good and beauty in the world, and you're willing to do the hard work to protect it. You know that people can cause great harm, but you're a humanist who knows that love and community can save us." +
+"<br><br><ul><li><b>Best matches:</b> black, dark green, true green </li>" + 
+"<li><b>Most conflict:</b> light yellow, light blue, light red</li>" + 
+"<li><b>Notes of:</b> gold bar, ochre, honeycomb</li></ul>";
 
 //green
 lightGreenInfo = "A contemplative spirit, you value time spent connecting with nature, long conversations with friends, and meaningful personal projects. Others are drawn to you because of your purpose and gentle drive. You may be an artisan, either literally or metaphorically. You likely have no or very few enemies and never worry yourself with gossip or drama." +
