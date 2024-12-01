@@ -139,9 +139,9 @@ function getFamilyInfo(color){
 //TYPE writeups
 //reds
 lightRedInfo =  "You are constantly seeking out new connections and new places. You might have a penchant for romantic connections, and you value living through as many unique experiences as possible. Light Red is a relatively controversial color type: cool and dark types may think you are shallow or flighty. But many people, especially light and warm types, will find you energizing. Unlike many types, you will get along well with others of your type." +
-"<br><br><ul><li><b>Best matches:</b> light yellow, light red, true red.</li>" + 
-"<li><b>Most conflict:</b> dark blue, black, dark green.</li>" + 
-"<li><b>Notes of:</b> cherry blossom, watermelon, cotton candy.</li></ul>";
+"<br><br><ul><li><b>Best matches:</b> light yellow, light red, true red</li>" + 
+"<li><b>Most conflict:</b> dark blue, black, dark green</li>" + 
+"<li><b>Notes of:</b> cherry blossom, watermelon, cotton candy</li></ul>";
 trueRedInfo = "You're a caring, loving person who has room in your heart for many people. You have a wide circle of casual friends and acquaintances who you value, but those in your inner circle are deeply important to you. You are one of the most universally compatible color types, and you enjoy spending time with those who are quite different from you." +
 "<br><br><ul><li><b>Best matches:</b> true green, dark red, white</li>" + 
 "<li><b>Most conflict:</b> black, true orange, light red</li>" + 
