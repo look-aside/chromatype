@@ -221,7 +221,7 @@ function showResults(){
     }
 
     //for testing!
-    OVERTONE_MODIFIER = "Dark";
+    OVERTONE_MODIFIER = "Light";
     OVERTONE = "Purple";
     UNDERTONE = "Yellow";
 
