@@ -33,7 +33,7 @@ const colorNamesIndex = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple"];
 var colorValues = [0,0,0,0,0,0]; //r, o, y, g, b, p, brightness
 var brightness = 0;
 
-WHITE_THRESHOLD = 67; //all colors avg is above this to be white
+WHITE_THRESHOLD = 70; //all colors avg is above this to be white
 BLACK_THRESHOLD = 53; //on average, disagreed with all questions
 
 OVERTONE = "";
